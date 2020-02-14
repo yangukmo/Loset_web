@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <router-view/>
+    <img id="logo" src="../assets/images/loset-120x163.svg" alt="Logo"/>
+    <p class="desc">Run applications in batches easily.</p>
+    <download-button id="btn-download"/>
+    <img id="screenshot" src="../assets/images/screenshot.png" alt="Screenshot"/>
   </div>
 </template>
 
 <script lang="ts">
-  import Home from '@/views/Home.vue'
+  import DownloadButton from '@/components/DownloadButton.vue'
   import { Component, Vue } from 'vue-property-decorator'
 
   @Component({
     components: {
-      Home,
+      DownloadButton,
     },
   })
-  export default class App extends Vue {
+  export default class Home extends Vue {
   }
 </script>
 
