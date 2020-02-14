@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <router-view/>
 </template>
 
 <script lang="ts">
@@ -14,6 +12,12 @@
     },
   })
   export default class App extends Vue {
+    created(): void {
+      const isProduction = (process.env.NODE_ENV === 'production')
+      if (!isProduction) {
+        this.$gtag.set({ sendHitTask: null })
+      }
+    }
   }
 </script>
 
@@ -29,36 +33,5 @@
     align-items: center;
     justify-content: center;
     color: #FFF;
-
-    #app {
-      font-family: Nunito Sans, Avenir, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 5rem 0;
-
-      #logo {
-        margin-bottom: 1rem;
-        width: 160px;
-        height: 217px;
-      }
-
-      #btn-download {
-        margin-bottom: 3rem;
-      }
-
-      #screenshot {
-        width: 100%;
-        max-width: 800px;
-      }
-
-      .desc {
-        margin-bottom: 2rem;
-        font-size: 18px;
-      }
-    }
   }
 </style>
