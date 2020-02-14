@@ -1,0 +1,18 @@
+$default-color: rgba(14, 84, 105, .2);
+$primary-active-color: rgba(34, 196, 214, .9);
+
+button {
+  border: 0;
+  outline: none;
+  background-color: $default-color;
+  color: #CCC;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border-radius: .25rem;
+  transition: background-color 300ms, color 300ms;
+
+  &:hover {
+    color: #FFF;
+    background-color: $primary-active-color;
+  }
+}

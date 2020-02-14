@@ -1,8 +1,7 @@
 <template>
   <div>
     <button type="button" id="btn-download" @click="downloadFile">
-      <span class="title">Download for Mac</span>
-      <span class="name" v-show="fileName">{{ fileName }}</span>
+      <span class="title">Download <span class="version" v-text="version"/> for Mac</span>
     </button>
   </div>
 </template>
@@ -15,15 +14,15 @@
   export default class DownloadButton extends Vue {
     private version!: string
     private downloadUrl!: string
-    private fileName!: string
     private size!: number
+    private updatedAt: string
 
     constructor() {
       super()
       this.version = ''
       this.downloadUrl = ''
-      this.fileName = ''
       this.size = 0
+      this.updatedAt = ''
     }
 
     created(): void {
@@ -39,32 +38,38 @@
       const [latestRelease] = data
       const [asset] = latestRelease.assets
 
-      this.version = latestRelease.tag_name
+      this.version = latestRelease.tag_name.replace('v', '')
       this.downloadUrl = asset.browser_download_url
-      this.fileName = asset.name
       this.size = asset.size
+
+      const updatedAt = new Date(asset.updated_at)
+      this.updatedAt = `${updatedAt.getFullYear()}-${(`0${updatedAt.getMonth() + 1}`).slice(-2)}-${updatedAt.getDate()}`
     }
   }
 </script>
 
 <style lang="scss" scoped>
   #btn-download {
-    border: 0;
-    background-color: #22C4D6;
-    color: #FFF;
-    outline: none;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
-
-    span {
-      display: block;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .title {
       margin-top: 0;
       margin-bottom: .5rem;
       font-weight: 600;
       font-size: 20px;
+
+      .version {
+        display: inline-block;
+        min-width: 50px;
+      }
+    }
+
+    .updated-at {
+      height: 15px;
+      font-size: 12px;
     }
   }
 </style>
