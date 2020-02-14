@@ -57,7 +57,6 @@
 
     .title {
       margin-top: 0;
-      margin-bottom: .5rem;
       font-weight: 600;
       font-size: 20px;
 
