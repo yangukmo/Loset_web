@@ -45,6 +45,8 @@
 
       #logo {
         margin-bottom: 1rem;
+        width: 160px;
+        height: 217px;
       }
 
       #btn-download {
