@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 const isProduction = (process.env.NODE_ENV === 'production')
 
 Vue.use(VueGtag, {
-  config: { id: 'G-J4XWH9N49Z' },
+  config: { id: 'UA-58585432-2' },
   disableScriptLoad: !isProduction,
 }, router)
 
