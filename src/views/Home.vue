@@ -3,7 +3,7 @@
     <img id="logo" src="../assets/images/loset-120x163.svg" alt="Logo"/>
     <p class="desc">Run applications in batches easily.</p>
     <download-button id="btn-download"/>
-    <img id="screenshot" src="../assets/images/screenshot.png" alt="Screenshot"/>
+    <img id="screenshot" src="../assets/images/screenshot.webp" alt="Screenshot"/>
   </div>
 </template>
 
