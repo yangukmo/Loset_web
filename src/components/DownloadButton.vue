@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <button type="button" id="btn-download" @click="downloadFile">
-      <span class="title">Download <span class="version" v-text="version"/> for Mac</span>
-    </button>
-  </div>
+  <button type="button" @click="downloadFile">
+    <span class="title">Download <span class="version" v-text="version"/> for Mac</span>
+  </button>
 </template>
 
 <script lang="ts">
@@ -30,7 +28,11 @@
     }
 
     downloadFile(): void {
-      this.$gtag.event('click_download_button', { event_category: 'download-app', event_label: 'version', value: this.version })
+      this.$gtag.event('click_download_button', {
+        event_category: 'download-app',
+        event_label: 'version',
+        value: this.version,
+      })
       window.open(this.downloadUrl)
     }
 
@@ -50,7 +52,7 @@
 </script>
 
 <style lang="scss" scoped>
-  #btn-download {
+  button {
     display: flex;
     flex-direction: column;
     align-items: center;

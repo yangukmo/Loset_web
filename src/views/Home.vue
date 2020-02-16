@@ -4,16 +4,19 @@
     <p class="desc">Run applications in batches easily.</p>
     <download-button id="btn-download"/>
     <img id="screenshot" src="../assets/images/screenshot.webp" alt="Screenshot"/>
+    <github-button/>
   </div>
 </template>
 
 <script lang="ts">
   import DownloadButton from '@/components/DownloadButton.vue'
+  import GithubButton from '@/components/GithubButton.vue'
   import { Component, Vue } from 'vue-property-decorator'
 
   @Component({
     components: {
       DownloadButton,
+      GithubButton,
     },
   })
   export default class Home extends Vue {
