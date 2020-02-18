@@ -28,10 +28,9 @@
     }
 
     downloadFile(): void {
-      this.$gtag.event('click_download_button', {
-        event_category: 'download-app',
-        event_label: 'version',
-        value: this.version,
+      this.$gtag.event('download_app', {
+        event_category: 'version',
+        event_label: this.version,
       })
       window.open(this.downloadUrl)
     }

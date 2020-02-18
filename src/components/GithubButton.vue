@@ -1,5 +1,5 @@
 <template>
-  <a id="btn-github" href="https://github.com/yangukmo/Loset" target="_blank">
+  <a id="btn-github" href="https://github.com/yangukmo/Loset" @click="analytics" target="_blank">
     <i class="fa fa-github"></i>
   </a>
 </template>
@@ -9,7 +9,11 @@
 
   @Component
   export default class GithubButton extends Vue {
-
+    analytics(): void {
+      this.$gtag.event('move_page', {
+        event_label: 'github'
+      })
+    }
   }
 </script>
 
