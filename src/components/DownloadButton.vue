@@ -32,7 +32,7 @@
         event_category: 'version',
         event_label: this.version,
       })
-      window.open(this.downloadUrl)
+      window.location.assign(this.downloadUrl)
     }
 
     private async getReleaseInfo(): Promise<void> {
